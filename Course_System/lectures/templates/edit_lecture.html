@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Coure Managment System</title>
+      <style>
+
+      </style>
+</head>
+<body>
+
+<div class="form-container">
+  <form method="POST" action="{%url 'update_lecture' lecture_id=lecture.id%}">
+    {% csrf_token %}
+    <label>Enter name: </label>
+    <input type="text" name='lecture_name' value="{{lecture.name}}"/>
+    <label>Enter week:</label>
+    <input type="number" name='week' value="{{lecture.week}}"/>
+    <label>Enter course name:</label>
+    <input type="text" name='course_name' value="{{lecture.course.name}}"/>
+    <label>Enter link for details:</label>
+    <input type="url" name='lecture_url' value="{{lecture.url}}"/>
+    <input type="submit" value="Edit lecture"/>
+  </form>
+</div>
+
+</body>
+</html>
