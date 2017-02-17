@@ -1,0 +1,10 @@
+X Error of failed request:  XI_BadDevice (invalid Device parameter)
+  Major opcode of failed request:  131 (XInputExtension)
+  Minor opcode of failed request:  39 (X_GetDeviceProperty)
+  Device id in failed request: 0x17
+  Serial number of failed request:  563
+  Current serial number in output stream:  563
+
+(unity-settings-daemon:1721): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+
+(unity-settings-daemon:1721): GLib-GObject-CRITICAL **: g_signal_handlers_disconnect_matched: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed

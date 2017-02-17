@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Coure Managment System</title>
+</head>
+<body>
+
+<div class="form-container">
+  <form method="POST" action="{%url 'new'%}">
+    {% csrf_token %}
+    <label>Enter name: </label>
+    <input type="text" name='course_name' />
+    <label>Enter description:</label>
+    <input type="text" name='course_description' />
+    <label>Enter start date:</label>
+    <input type="Date" name='start_date' />
+    <label>Enter end_date:</label>
+    <input type="date" name='end_date' />
+    <input type="submit" value="Add new course" />
+  </form>
+</div>
+
+</body>
+</html>

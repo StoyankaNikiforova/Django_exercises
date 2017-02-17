@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>monthdelta â€” Pythonic Date Calculation with Months &mdash; MonthDelta 1.0a documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0a',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="MonthDelta 1.0a documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">MonthDelta 1.0a documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-monthdelta">
+<span id="monthdelta-pythonic-date-calculation-with-months"></span><h1><a class="reference internal" href="#module-monthdelta" title="monthdelta: date calculations with months"><tt class="xref py py-mod docutils literal"><span class="pre">monthdelta</span></tt></a> &#8212; Pythonic Date Calculation with Months<a class="headerlink" href="#module-monthdelta" title="Permalink to this headline">Â¶</a></h1>
+<p>The <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> class and <a class="reference internal" href="#monthdelta.monthmod" title="monthdelta.monthmod"><tt class="xref py py-func docutils literal"><span class="pre">monthmod()</span></tt></a> function provide
+month-related date functionality.</p>
+<div class="section" id="monthdelta-object">
+<h2><a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> object<a class="headerlink" href="#monthdelta-object" title="Permalink to this headline">Â¶</a></h2>
+<dl class="class">
+<dt id="monthdelta.MonthDelta">
+<em class="property">class </em><tt class="descclassname">monthdelta.</tt><tt class="descname">MonthDelta</tt><big>(</big><span class="optional">[</span><em>months=1</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#monthdelta.MonthDelta" title="Permalink to this definition">Â¶</a></dt>
+<dd><p>The class constructor takes one optional integer argument, <em>months</em>, with a
+default value of 1 (one).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>months</strong> &#8211; <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-func docutils literal"><span class="pre">integer</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>A <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> object represents a quantity of months offset from a
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime.date</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime.datetime</span></tt></a>.  <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a>
+allows date calculations without regard to the different lengths of different
+months. A <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> object added to a <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> object
+produces another <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> that has the same
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date.day" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">day</span></tt></a>, with <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date.year" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">year</span></tt></a> and
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date.month" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">month</span></tt></a> offset by <a class="reference internal" href="#monthdelta.monthdelta.months" title="monthdelta.monthdelta.months"><tt class="xref py py-attr docutils literal"><span class="pre">monthdelta.months</span></tt></a>.  If the
+resulting <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date.day" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">day</span></tt></a> would be too large for the resulting
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date.month" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">month</span></tt></a>, the last day in that month is used instead:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">datetime.date(2008, 2, 29)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">datetime.date(2008, 3, 30)</span>
+</pre></div>
+</div>
+<p>Adding a <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> object to a <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> or
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a> object differs from adding a
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.timedelta" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a> object in that a <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.timedelta" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a>
+object represents a fixed number of <tt class="xref py py-attr docutils literal"><span class="pre">days</span></tt>, while the
+number of days that a <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> object represents depends on the
+actual months that it spans when added to the <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> or
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a> object.</p>
+<p><a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> objects may be added, subtracted, multiplied, and
+floor-divided similarly to <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.timedelta" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a> objects.  They may not
+be added to <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.timedelta" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a> objects directly, as both classes are
+intended to be used directly with <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> and
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a> objects.</p>
+<p>Instance attribute:</p>
+<dl class="attribute">
+<dt id="monthdelta.monthdelta.months">
+<tt class="descclassname">monthdelta.</tt><tt class="descname">months</tt><a class="headerlink" href="#monthdelta.monthdelta.months" title="Permalink to this definition">Â¶</a></dt>
+<dd><p>Read-only.</p>
+</dd></dl>
+
+<p>Supported operations:</p>
+<p>In the following, <em>mds</em> are <a class="reference internal" href="#module-monthdelta" title="monthdelta: date calculations with months"><tt class="xref py py-class docutils literal"><span class="pre">MonthDeltas</span></tt></a>, <em>dts</em> are
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">dates</span></tt></a> or <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetimes</span></tt></a>,
+and <em>i</em> is an <a class="reference external" href="http://docs.python.org/library/functions.html#int" title="(in Python v2.7)"><tt class="xref py py-func docutils literal"><span class="pre">integer</span></tt></a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">md1</span> <span class="pre">=</span> <span class="pre">md2</span> <span class="pre">+</span> <span class="pre">md3</span></tt></td>
+<td>Sum of <em>md2</em> and <em>md3</em>. Afterwards
+<tt class="docutils literal"><span class="pre">md1</span> <span class="pre">-</span> <span class="pre">md2</span> <span class="pre">==</span> <span class="pre">md3</span></tt> and <tt class="docutils literal"><span class="pre">md1</span> <span class="pre">-</span> <span class="pre">md3</span> <span class="pre">==</span> <span class="pre">md2</span></tt> are
+<strong>True</strong>. (1)</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">md1</span> <span class="pre">=</span> <span class="pre">md2</span> <span class="pre">-</span> <span class="pre">md3</span></tt></td>
+<td>Difference of <em>md2</em> and <em>md3</em>. Afterwards
+<tt class="docutils literal"><span class="pre">md1</span> <span class="pre">==</span> <span class="pre">md2</span> <span class="pre">-</span> <span class="pre">md3</span></tt> and <tt class="docutils literal"><span class="pre">md2</span> <span class="pre">==</span> <span class="pre">md1</span> <span class="pre">+</span> <span class="pre">md3</span></tt> are
+<strong>True</strong>. (1)</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">dt2</span> <span class="pre">=</span> <span class="pre">dt1</span> <span class="pre">+</span> <span class="pre">md</span></tt></td>
+<td><em>dt2</em> has all attributes other than
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.year" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">year</span></tt></a> and
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.month" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">month</span></tt></a> equal to those of
+<em>dt1</em>, <a class="reference internal" href="#monthdelta.monthdelta.months" title="monthdelta.monthdelta.months"><tt class="xref py py-attr docutils literal"><span class="pre">months</span></tt></a> months later than
+<em>dt1</em>. (1) (2)</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">dt2</span> <span class="pre">=</span> <span class="pre">dt1</span> <span class="pre">-</span> <span class="pre">md</span></tt></td>
+<td><em>dt2</em> has all attributes other than
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.year" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">year</span></tt></a> and
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.month" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">month</span></tt></a> equal to those of
+<em>dt1</em>, <a class="reference internal" href="#monthdelta.monthdelta.months" title="monthdelta.monthdelta.months"><tt class="xref py py-attr docutils literal"><span class="pre">monthdelta.months</span></tt></a> months earlier
+than <em>dt1</em>. (1) (2)</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">md1</span> <span class="pre">=</span> <span class="pre">md2</span> <span class="pre">*</span> <span class="pre">i</span></tt> or
+<tt class="docutils literal"><span class="pre">md1</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">*</span> <span class="pre">md2</span></tt></td>
+<td>Product of <em>md2</em> and <em>i</em>. Afterwards
+<tt class="docutils literal"><span class="pre">md1</span> <span class="pre">//</span> <span class="pre">i</span> <span class="pre">==</span> <span class="pre">md2</span></tt> is true, provided <tt class="docutils literal"><span class="pre">i</span> <span class="pre">!=</span> <span class="pre">0</span></tt>.
+Also, <tt class="docutils literal"><span class="pre">md1</span> <span class="pre">//</span> <span class="pre">md2</span> <span class="pre">==</span> <span class="pre">i</span></tt> is true, provided
+<tt class="docutils literal"><span class="pre">md2.months</span> <span class="pre">!=</span> <span class="pre">0</span></tt>. (1)</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">md1</span> <span class="pre">=</span> <span class="pre">md2</span> <span class="pre">//</span> <span class="pre">i</span></tt></td>
+<td>The floor is computed and the remainder (if any) is
+thrown away. (3)</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">md2</span> <span class="pre">//</span> <span class="pre">md3</span></tt></td>
+<td>The floor is computed and the remainder (if any) is
+thrown away. (3)</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">+md1</span></tt></td>
+<td>Returns a <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> object with the same
+value. (4)</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">-md1</span></tt></td>
+<td>Equivalent to <tt class="docutils literal"><span class="pre">monthdelta(-m1.months)</span></tt>, and to
+<tt class="docutils literal"><span class="pre">m1</span> <span class="pre">*</span> <span class="pre">-1</span></tt>. (4)</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">abs(md1)</span></tt></td>
+<td>equivalent to <tt class="docutils literal"><span class="pre">+m1</span></tt> when <tt class="docutils literal"><span class="pre">m1.months</span> <span class="pre">&gt;=</span> <span class="pre">0</span></tt>, and
+to <tt class="docutils literal"><span class="pre">-m1</span></tt> when <tt class="docutils literal"><span class="pre">m1.months</span> <span class="pre">&lt;</span> <span class="pre">0</span></tt>. (4)</td>
+</tr>
+</tbody>
+</table>
+<p>Notes:</p>
+<ol class="arabic">
+<li><p class="first">May overflow.</p>
+</li>
+<li><p class="first">When the resulting <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> would have too large a
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date.day" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">day</span></tt></a> for its <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date.month" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">month</span></tt></a>, it has the
+last day of that month:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">date(2008,2,29)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> calculations involving the 29th, 30th, and 31st days
+of the month are not necessarily invertible:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">29</span><span class="p">)</span> <span class="o">-</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">date(2008,1,29)</span>
+</pre></div>
+</div>
+<p>When the resulting <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a> has its
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.day" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">day</span></tt></a> moved to the last day of the month, the
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.hour" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">hour</span></tt></a>, <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.minute" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">minute</span></tt></a>,
+<a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.second" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">second</span></tt></a>, <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.microsecond" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">microsecond</span></tt></a>,
+and <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime.tzinfo" title="(in Python v2.7)"><tt class="xref py py-attr docutils literal"><span class="pre">tzinfo</span></tt></a> attributes are not changed:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">datetime.datetime(2008, 2, 29, 12, 30, 13)</span>
+</pre></div>
+</div>
+<p>Adding or subtracting a <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> object and a
+<a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> object produces another <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> object.
+Use the <a class="reference internal" href="#monthdelta.monthmod" title="monthdelta.monthmod"><tt class="xref py py-func docutils literal"><span class="pre">monthmod()</span></tt></a> function in order to produce a <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a>
+object from two <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> objects.</p>
+<p>Adding or subtracting a <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a> object and a
+<a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> object produces another <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a>.
+Use the <a class="reference internal" href="#monthdelta.monthmod" title="monthdelta.monthmod"><tt class="xref py py-func docutils literal"><span class="pre">monthmod()</span></tt></a> function in order to produce a <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a>
+object from two <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a> objects.</p>
+</li>
+<li><p class="first">Division by 0 raises <a class="reference external" href="http://docs.python.org/library/exceptions.html#exceptions.ZeroDivisionError" title="(in Python v2.7)"><tt class="xref py py-exc docutils literal"><span class="pre">ZeroDivisionError</span></tt></a>.</p>
+</li>
+<li><p class="first">Cannot overflow.</p>
+</li>
+</ol>
+<p>Comparisons of <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> objects are supported; the object with the
+lesser <a class="reference internal" href="#monthdelta.monthdelta.months" title="monthdelta.monthdelta.months"><tt class="xref py py-attr docutils literal"><span class="pre">months</span></tt></a> attribute is considered the lesser
+<a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a>.</p>
+<p><a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> objects are <em>hashable</em> and support efficient pickling. In
+Boolean contexts, a <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> object is considered to be <strong>True</strong> if
+and only if it isn&#8217;t equal to <tt class="docutils literal"><span class="pre">monthdelta(0)</span></tt>.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">datetime.date(2008, 2, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">datetime.date(2008, 2, 29)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="o">+</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">datetime.date(2008, 2, 29)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span> <span class="o">+</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="go">datetime.date(2008, 7, 31)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">year</span> <span class="o">=</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">29</span><span class="p">)</span> <span class="o">+</span> <span class="n">year</span>
+<span class="go">datetime.date(2009, 2, 28)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">29</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">year</span>
+<span class="go">datetime.date(2012, 2, 29)</span>
+</pre></div>
+</div>
+<p>Example of working with <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> and <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a>.  We
+have a dictionary of accounts associated with sorted lists of their invoice
+dates, and we&#8217;re looking for missing invoices:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">invoices</span> <span class="o">=</span> <span class="p">{</span><span class="mi">123</span><span class="p">:</span> <span class="p">[</span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">29</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)],</span>
+<span class="gp">... </span>            <span class="mi">456</span><span class="p">:</span> <span class="p">[</span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="gp">... </span>                  <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">account</span><span class="p">,</span> <span class="n">dates</span> <span class="ow">in</span> <span class="n">invoices</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">a</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">b</span> <span class="o">-</span> <span class="n">monthdelta</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">a</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">print</span><span class="p">(</span><span class="s">&#39;account&#39;</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="s">&#39;missing between&#39;</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s">&#39;and&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+<span class="gp">...</span>
+<span class="go">account 456 missing between 2008-01-01 and 2008-05-01</span>
+<span class="go">account 456 missing between 2008-08-01 and 2008-11-01</span>
+<span class="go">account 123 missing between 2008-07-31 and 2008-12-31</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="monthmod-function">
+<h2><a class="reference internal" href="#monthdelta.monthmod" title="monthdelta.monthmod"><tt class="xref py py-func docutils literal"><span class="pre">monthmod()</span></tt></a> function<a class="headerlink" href="#monthmod-function" title="Permalink to this headline">Â¶</a></h2>
+<dl class="function">
+<dt id="monthdelta.monthmod">
+<tt class="descclassname">monthdelta.</tt><tt class="descname">monthmod</tt><big>(</big><em>start</em>, <em>end</em><big>)</big><a class="headerlink" href="#monthdelta.monthmod" title="Permalink to this definition">Â¶</a></dt>
+<dd><p>Return the interim between <tt class="docutils literal"><span class="pre">start</span></tt> and <tt class="docutils literal"><span class="pre">end</span></tt>, distributed into a
+&#8220;months&#8221; portion and a remainder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>start</strong> &#8211; <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a></li>
+<li><strong>end</strong> &#8211; <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">(<a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a>, <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.timedelta" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a>) tuple</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p><tt class="docutils literal"><span class="pre">start</span></tt> and <tt class="docutils literal"><span class="pre">end</span></tt> must support mutual subtraction.  For this reason,
+passing a <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> object and a <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a>
+object together will raise a <a class="reference external" href="http://docs.python.org/library/exceptions.html#exceptions.TypeError" title="(in Python v2.7)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a>.  Subclasses that
+override <tt class="xref py py-func docutils literal"><span class="pre">__sub__()</span></tt> could work, however.</p>
+<p>If and only if <tt class="docutils literal"><span class="pre">start</span></tt> is greater than <tt class="docutils literal"><span class="pre">end</span></tt>, returned
+<a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> is negative.  Returned <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.timedelta" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a> is
+never negative, and its <tt class="xref py py-attr docutils literal"><span class="pre">days</span></tt> attribute is always
+less than the number of days in <tt class="docutils literal"><span class="pre">end.month</span></tt>.</p>
+<blockquote>
+<div><strong>Invariant:</strong> <tt class="docutils literal"><span class="pre">dt</span> <span class="pre">+</span> <span class="pre">monthmod(dt,</span> <span class="pre">dt+td)[0]</span> <span class="pre">+</span> <span class="pre">monthmod(dt,</span> <span class="pre">dt+td)[1]</span>
+<span class="pre">==</span> <span class="pre">dt</span> <span class="pre">+</span> <span class="pre">td</span></tt> is <strong>True</strong>.</div></blockquote>
+<p><a class="reference internal" href="#monthdelta.monthmod" title="monthdelta.monthmod"><tt class="xref py py-func docutils literal"><span class="pre">monthmod()</span></tt></a> allows round-trip <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.date" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a> calculations
+involving <a class="reference internal" href="#monthdelta.MonthDelta" title="monthdelta.MonthDelta"><tt class="xref py py-class docutils literal"><span class="pre">MonthDelta</span></tt></a> and <a class="reference external" href="http://docs.python.org/library/datetime.html#datetime.timedelta" title="(in Python v2.7)"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a> objects:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">monthmod</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span> <span class="n">date</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">(datetime.monthdelta(14), datetime.timedelta(19))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span> <span class="o">+</span> <span class="n">_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">datetime.date(2009, 4, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">monthmod</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">date</span><span class="p">(</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+<span class="go">(datetime.monthdelta(-15), datetime.timedelta(12))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">datetime.date(2008, 1, 14)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">monthdelta</span></tt> &#8212; Pythonic Date Calculation with Months</a><ul>
+<li><a class="reference internal" href="#monthdelta-object"><tt class="docutils literal"><span class="pre">MonthDelta</span></tt> object</a></li>
+<li><a class="reference internal" href="#monthmod-function"><tt class="docutils literal"><span class="pre">monthmod()</span></tt> function</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">MonthDelta 1.0a documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Jess Austin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>Kí!Ì¤p      Xœ¨Xœ®=kc;       %    :https://pythonhosted.org/MonthDelta/ necko:classified 1 strongly-framed 1 security-info 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 request-method GET response-head HTTP/1.1 200 OK
+Server: gunicorn/19.6.0
+Date: Thu, 09 Feb 2017 06:35:23 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 45954
+ original-response-headers Server: gunicorn/19.6.0
+Date: Thu, 09 Feb 2017 06:35:23 GMT
+Connection: keep-alive
+Content-Type: text/html; charset=UTF-8
+Content-Length: 45954
+ charset UTF-8 uncompressed-len 0 predictor::resource-count 6 predictor::https://pythonhosted.org/MonthDelta/_static/default.css 1,1,1486622120,4096 predictor::https://pythonhosted.org/MonthDelta/_static/pygments.css 1,1,1486622120,4096 predictor::https://pythonhosted.org/MonthDelta/_static/jquery.js 1,1,1486622120,4096 predictor::https://pythonhosted.org/MonthDelta/_static/underscore.js 1,1,1486622120,4096 predictor::https://pythonhosted.org/MonthDelta/_static/doctools.js 1,1,1486622120,4096 predictor::https://pythonhosted.org/MonthDelta/_static/basic.css 1,1,1486622120,4096   ³‚

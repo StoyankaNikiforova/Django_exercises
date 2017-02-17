@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Coure Managment System</title>
+      <style>
+
+      </style>
+</head>
+<body>
+
+<div class="form-container">
+  <form method="POST" action="{%url 'new_lecture'%}">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Add new lecture"/>
+  </form>
+</div>
+
+</body>
+</html>

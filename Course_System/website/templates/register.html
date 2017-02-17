@@ -1,0 +1,24 @@
+ <!DOCTYPE html>
+<html>
+<head>
+      <title>Coure Managment System</title>
+      <style>
+      </style>
+</head>
+<body>
+    <div class="form-container">
+      <form method="POST" action="{%url 'register'%}">
+        {% csrf_token %}
+        <label>Enter first name: </label>
+        <input type="text" name='first_name'/>
+        <label>Enter last name: </label>
+        <input type="text" name='last_name'/>
+        <label>Enter email:</label>
+        <input type="email" name='email'/>
+        <label>Enter password:</label>
+        <input type="password" name='password'/>
+        <input type="submit" value="Register"/>
+      </form>
+    </div>
+</body>
+</html>
